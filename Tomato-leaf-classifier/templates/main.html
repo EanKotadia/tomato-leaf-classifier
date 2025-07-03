@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tomato Leaf Disease Classifier</title>
+    <meta name="description" content="AI-powered tomato plant disease recognition project by Ean Kotadia, Class 10 E.">
+    <meta property="og:title" content="Tomato Leaf Disease Classifier">
+    <meta property="og:description"
+        content="A science project demonstrating computer vision for early detection of tomato plant diseases.">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="/static/styles.css">
+    <!-- Load TensorFlow.js and Teachable Machine image library -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image"></script>
+</head>
+
+<body>
+    <main id="main-content" aria-label="Main content">
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>Tomato Leaf Disease Classifier</h1>
+                <p>
+                    Developed by <strong>Ean Kotadia</strong>, Class 10 E, as part of the Science Summer Vacation
+                    Homework.
+                </p>
+            </div>
+        </section>
+
+        <section class="section demo">
+            <div class="container">
+                <h2>Try the Classifier</h2>
+                <p>Upload a photo of a tomato leaf to see the prediction:</p>
+                <input type="file" id="imageUpload" accept="image/*">
+                <br><br>
+                <img id="preview" alt="Uploaded Image Preview"
+                    style="display:none; max-width:300px; border-radius:8px;">
+                <p id="predictionResult"></p>
+            </div>
+        </section>
+
+        <section class="section project-details">
+            <div class="container">
+                <h2>How It Works</h2>
+                <ul>
+                    <li>Step 1: Collect images of healthy and diseased leaves.</li>
+                    <li>Step 2: Train an image classification model with Teachable Machine.</li>
+                    <li>Step 3: Export or link the trained model for use in this web interface.</li>
+                    <li>Step 4: Use TensorFlow.js to run predictions directly in your browser.</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        let model, maxPredictions;
+
+        async function loadModel() {
+            const URL = "https://teachablemachine.withgoogle.com/models/WZC3cVtAX/";
+            model = await tmImage.load(URL + "model.json", URL + "metadata.json");
+            maxPredictions = model.getTotalClasses();
+            console.log("Model loaded.");
+        }
+
+        // Load model when page loads
+        loadModel();
+
+        const imageInput = document.getElementById("imageUpload");
+        const preview = document.getElementById("preview");
+        const result = document.getElementById("predictionResult");
+
+        imageInput.addEventListener("change", async (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            preview.src = URL.createObjectURL(file);
+            preview.style.display = "block";
+            result.textContent = "Analyzing...";
+
+            preview.onload = async () => {
+                const predictions = await model.predict(preview);
+                let output = "";
+                predictions.forEach(p => {
+                    output += `${p.className}: ${(p.probability * 100).toFixed(2)}%<br>`;
+                });
+                result.innerHTML = output;
+            };
+        });
+    </script>
+</body>
+
+</html>

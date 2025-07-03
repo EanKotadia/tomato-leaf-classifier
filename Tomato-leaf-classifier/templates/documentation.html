@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Tomato Leaf Disease Classifier - Documentation</title>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        document.body.classList.add('loaded');
+    });
+</script>
+{% endblock %}
+
+{% block body %}
+<link rel="stylesheet" href="/static/styles.css">
+
+<main>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Documentation & Methodology</h1>
+            <p>
+                Learn how the Tomato Leaf Disease Classifier was developed as an independent student science project,
+                which uses machine learning to recognize plant diseases from leaf images.
+                This platform is intended exclusively for experimentation and learning.
+            </p>
+        </div>
+    </section>
+
+    <section class="section overview">
+        <div class="container">
+            <h2>Project Overview</h2>
+            <p>
+                The Tomato Leaf Disease Classifier is a self-initiated educational project created by Ean Kotadia,
+                a Class 10 E student.
+                The goal is to explore how computer vision models can assist in early detection of plant health issues.
+            </p>
+            <ul>
+                <li><strong>Language:</strong> HTML, CSS, JavaScript</li>
+                <li><strong>Model:</strong> Teachable Machine Image Classifier</li>
+                <li><strong>Libraries:</strong> TensorFlow.js</li>
+                <li><strong>Project Type:</strong> Science Project (non-commercial)</li>
+                <li><strong>Status:</strong> Completed as part of Summer Vacation Homework</li>
+            </ul>
+            <p>
+                This project demonstrates how accessible AI tools can help students build practical solutions for
+                agriculture.
+            </p>
+        </div>
+    </section>
+
+    <section class="section objectives">
+        <div class="container">
+            <h2>Project Objectives</h2>
+            <p>
+                The primary objectives of this project were:
+            </p>
+            <ul>
+                <li>Understand how machine learning models are trained on labeled image data.</li>
+                <li>Practice collecting and categorizing example images of healthy and diseased leaves.</li>
+                <li>Deploy an interactive web-based classifier that predicts disease types.</li>
+                <li>Highlight the potential benefits and limitations of AI in agriculture.</li>
+                <li>Encourage other students to explore computer vision for real-world challenges.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section data-sources">
+        <div class="container">
+            <h2>Data Sources and Collection</h2>
+            <p>
+                The model was trained using photographs collected and organized into categories:
+            </p>
+            <ul>
+                <li><strong>Healthy Leaves:</strong> Fresh, green tomato leaves without visible discoloration.</li>
+                <li><strong>Early Blight:</strong> Leaves showing brown concentric spots and yellowing edges.</li>
+                <li><strong>Late Blight:</strong> Dark lesions and rapid tissue decay.</li>
+                <li><strong>Leaf Mold:</strong> Yellow patches with fuzzy growth on the underside.</li>
+            </ul>
+            <p>
+                Images were manually labeled and uploaded to Teachable Machine to build the classifier.
+            </p>
+            <p>
+                Additional sample images were used to validate the model’s predictions.
+            </p>
+        </div>
+    </section>
+
+    <section class="section modeling">
+        <div class="container">
+            <h2>Modeling Techniques</h2>
+            <p>
+                The classifier uses Teachable Machine’s image recognition framework, which applies transfer learning
+                on a pre-trained MobileNet architecture. This enables accurate predictions even with a small dataset.
+            </p>
+            <ul>
+                <li><strong>Teachable Machine:</strong> Web-based tool for training and exporting TensorFlow.js models.
+                </li>
+                <li><strong>TensorFlow.js:</strong> Library to run the model directly in the browser without a backend
+                    server.</li>
+                <li><strong>Client-Side Prediction:</strong> Image files are processed in the browser to classify leaf
+                    health.</li>
+            </ul>
+            <p>
+                The model is intentionally lightweight so it loads quickly and can be tested on most devices.
+            </p>
+        </div>
+    </section>
+
+    <section class="section outputs">
+        <div class="container">
+            <h2>Output Features</h2>
+            <p>
+                When a user uploads or captures a photo of a tomato leaf, the system:
+            </p>
+            <ul>
+                <li>Displays the predicted class label (e.g., Healthy, Early Blight, Late Blight, Leaf Mold).</li>
+                <li>Shows the confidence score for each prediction.</li>
+                <li>Provides simple guidance on what the result means.</li>
+            </ul>
+            <p>
+                All predictions are for demonstration and learning purposes only.
+            </p>
+        </div>
+    </section>
+
+    <section class="section limitations">
+        <div class="container">
+            <h2>Limitations and Disclaimer</h2>
+            <p>
+                This project is a student experiment and has not been validated by agricultural experts.
+                It should not be used for actual diagnosis or treatment decisions.
+            </p>
+            <p>
+                Model accuracy depends on image quality, lighting, and dataset size.
+                For professional advice, consult qualified agronomists.
+            </p>
+        </div>
+    </section>
+
+    <section class="section contributing">
+        <div class="container">
+            <h2>How to Learn More or Contribute</h2>
+            <p>
+                You can explore the project code, try the live demo, or adapt it for your own studies:
+            </p>
+            <ul>
+                <li><a href="https://github.com/EanKotadia" target="_blank" rel="noopener">GitHub Repository</a></li>
+                <li><a href="https://devpost.com/EanKotadia" target="_blank" rel="noopener">Devpost Profile</a></li>
+                <li><a href="https://www.behance.net/eankotadia" target="_blank" rel="noopener">Behance Portfolio</a>
+                </li>
+                <li><a href="https://www.linkedin.com/in/ean-kotadia-7a2b0821a/" target="_blank"
+                        rel="noopener">LinkedIn</a></li>
+                <li><a href="https://www.youtube.com/@ean_kotadia" target="_blank" rel="noopener">YouTube Channel</a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="section contact">
+        <div class="container">
+            <h2>Questions or Feedback?</h2>
+            <p>
+                I'd be glad to hear your thoughts or answer any questions about this project.
+            </p>
+            <ul>
+                <li>Email: <a href="mailto:kotadia.ean@gmail.com">kotadia.ean@gmail.com</a></li>
+                <li>GitHub: <a href="https://github.com/EanKotadia" target="_blank" rel="noopener">View My GitHub</a>
+                </li>
+                <li>YouTube: <a href="https://www.youtube.com/@ean_kotadia" target="_blank" rel="noopener">Watch Video
+                        Demos</a></li>
+                <li>LinkedIn: <a href="https://www.linkedin.com/in/ean-kotadia-7a2b0821a/" target="_blank"
+                        rel="noopener">Connect on LinkedIn</a></li>
+            </ul>
+        </div>
+    </section>
+</main>
+{% endblock %}
